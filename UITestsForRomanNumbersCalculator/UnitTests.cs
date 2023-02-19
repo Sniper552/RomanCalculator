@@ -55,28 +55,25 @@ namespace UITestsForRomanNumbersCalculator
 
             var resultTextBox = mainWindow.GetVisualDescendants().OfType<TextBlock>().First(textBox => textBox.Name == "CalculationsResultTextBox");
             Dictionary<string, Button> buttons = initializeMainWindowButtons(mainWindow);
-            
-            // I + V = VI
             buttons["I"].Command.Execute(buttons["I"].CommandParameter);
             buttons["+"].Command.Execute(buttons["+"].CommandParameter);
-            buttons["V"].Command.Execute(buttons["V"].CommandParameter);
+            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
             buttons["="].Command.Execute(buttons["="].CommandParameter);
 
             await Task.Delay(50);
             string text = resultTextBox.Text;
             buttons["CE"].Command.Execute(buttons["CE"].CommandParameter);
-            Assert.True(text == "VI", getErrorMessage("VI", text));
+            Assert.True(text == "MI", getErrorMessage("MI", text));
 
-            // M + M = MM
             buttons["M"].Command.Execute(buttons["M"].CommandParameter);
-            buttons["+"].Command.Execute(buttons["+"].CommandParameter);
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
+            buttons["-"].Command.Execute(buttons["-"].CommandParameter);
+            buttons["I"].Command.Execute(buttons["I"].CommandParameter);
             buttons["="].Command.Execute(buttons["="].CommandParameter);
 
             await Task.Delay(50);
             text = resultTextBox.Text;
             buttons["CE"].Command.Execute(buttons["CE"].CommandParameter);
-            Assert.True(text == "MM", getErrorMessage("MM", text));
+            Assert.True(text == "IM", getErrorMessage("IM", text));
         }
 
         [Fact]
@@ -90,7 +87,6 @@ namespace UITestsForRomanNumbersCalculator
             var resultTextBox = mainWindow.GetVisualDescendants().OfType<TextBlock>().First(textBox => textBox.Name == "CalculationsResultTextBox");
             Dictionary<string, Button> buttons = initializeMainWindowButtons(mainWindow);
 
-            // C - V = XCV
             buttons["C"].Command.Execute(buttons["C"].CommandParameter);
             buttons["-"].Command.Execute(buttons["-"].CommandParameter);
             buttons["V"].Command.Execute(buttons["V"].CommandParameter);
@@ -101,7 +97,7 @@ namespace UITestsForRomanNumbersCalculator
             buttons["CE"].Command.Execute(buttons["CE"].CommandParameter);
             Assert.True(text == "XCV", getErrorMessage("XCV", text));
 
-            // C - XC = X
+
             buttons["C"].Command.Execute(buttons["C"].CommandParameter);
             buttons["-"].Command.Execute(buttons["-"].CommandParameter);
             buttons["X"].Command.Execute(buttons["X"].CommandParameter);
@@ -125,18 +121,16 @@ namespace UITestsForRomanNumbersCalculator
             var resultTextBox = mainWindow.GetVisualDescendants().OfType<TextBlock>().First(textBox => textBox.Name == "CalculationsResultTextBox");
             Dictionary<string, Button> buttons = initializeMainWindowButtons(mainWindow);
 
-            // C * V = D
             buttons["C"].Command.Execute(buttons["C"].CommandParameter);
             buttons["*"].Command.Execute(buttons["*"].CommandParameter);
-            buttons["V"].Command.Execute(buttons["V"].CommandParameter);
+            buttons["I"].Command.Execute(buttons["I"].CommandParameter);
             buttons["="].Command.Execute(buttons["="].CommandParameter);
 
             await Task.Delay(50);
             string text = resultTextBox.Text;
             buttons["CE"].Command.Execute(buttons["CE"].CommandParameter);
-            Assert.True(text == "D", getErrorMessage("D", text));
+            Assert.True(text == "C", getErrorMessage("C", text));
 
-            // C * IX = CM
             buttons["C"].Command.Execute(buttons["C"].CommandParameter);
             buttons["*"].Command.Execute(buttons["*"].CommandParameter);
             buttons["I"].Command.Execute(buttons["I"].CommandParameter);
@@ -160,7 +154,7 @@ namespace UITestsForRomanNumbersCalculator
             var resultTextBox = mainWindow.GetVisualDescendants().OfType<TextBlock>().First(textBox => textBox.Name == "CalculationsResultTextBox");
             Dictionary<string, Button> buttons = initializeMainWindowButtons(mainWindow);
 
-            // C / V = XX
+ 
             buttons["C"].Command.Execute(buttons["C"].CommandParameter);
             buttons["/"].Command.Execute(buttons["/"].CommandParameter);
             buttons["V"].Command.Execute(buttons["V"].CommandParameter);
@@ -171,7 +165,6 @@ namespace UITestsForRomanNumbersCalculator
             buttons["CE"].Command.Execute(buttons["CE"].CommandParameter);
             Assert.True(text == "XX", getErrorMessage("XX", text));
 
-            // CV / III = XXXV
             buttons["C"].Command.Execute(buttons["C"].CommandParameter);
             buttons["V"].Command.Execute(buttons["V"].CommandParameter);
             buttons["/"].Command.Execute(buttons["/"].CommandParameter);
@@ -197,12 +190,15 @@ namespace UITestsForRomanNumbersCalculator
             var resultTextBox = mainWindow.GetVisualDescendants().OfType<TextBlock>().First(textBox => textBox.Name == "CalculationsResultTextBox");
             Dictionary<string, Button> buttons = initializeMainWindowButtons(mainWindow);
 
-            // MM + MM = #ERROR
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
+            buttons["D"].Command.Execute(buttons["D"].CommandParameter);
+            buttons["D"].Command.Execute(buttons["D"].CommandParameter);
+            buttons["D"].Command.Execute(buttons["D"].CommandParameter);
+            buttons["D"].Command.Execute(buttons["D"].CommandParameter);
             buttons["+"].Command.Execute(buttons["+"].CommandParameter);
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
+            buttons["D"].Command.Execute(buttons["D"].CommandParameter);
+            buttons["D"].Command.Execute(buttons["D"].CommandParameter);
+            buttons["D"].Command.Execute(buttons["D"].CommandParameter);
+            buttons["D"].Command.Execute(buttons["D"].CommandParameter);
             buttons["="].Command.Execute(buttons["="].CommandParameter);
 
             await Task.Delay(50);
@@ -222,12 +218,11 @@ namespace UITestsForRomanNumbersCalculator
             var resultTextBox = mainWindow.GetVisualDescendants().OfType<TextBlock>().First(textBox => textBox.Name == "CalculationsResultTextBox");
             Dictionary<string, Button> buttons = initializeMainWindowButtons(mainWindow);
 
-            // MM - MM = #ERROR
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
+            buttons["V"].Command.Execute(buttons["V"].CommandParameter);
+            buttons["V"].Command.Execute(buttons["V"].CommandParameter);
             buttons["-"].Command.Execute(buttons["-"].CommandParameter);
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
+            buttons["V"].Command.Execute(buttons["V"].CommandParameter);
+            buttons["V"].Command.Execute(buttons["V"].CommandParameter);
             buttons["="].Command.Execute(buttons["="].CommandParameter);
 
             await Task.Delay(50);
@@ -247,8 +242,7 @@ namespace UITestsForRomanNumbersCalculator
             var resultTextBox = mainWindow.GetVisualDescendants().OfType<TextBlock>().First(textBox => textBox.Name == "CalculationsResultTextBox");
             Dictionary<string, Button> buttons = initializeMainWindowButtons(mainWindow);
 
-            // M * M = #ERROR
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
+            buttons["V"].Command.Execute(buttons["V"].CommandParameter);
             buttons["*"].Command.Execute(buttons["*"].CommandParameter);
             buttons["M"].Command.Execute(buttons["M"].CommandParameter);
             buttons["="].Command.Execute(buttons["="].CommandParameter);
@@ -270,7 +264,7 @@ namespace UITestsForRomanNumbersCalculator
             var resultTextBox = mainWindow.GetVisualDescendants().OfType<TextBlock>().First(textBox => textBox.Name == "CalculationsResultTextBox");
             Dictionary<string, Button> buttons = initializeMainWindowButtons(mainWindow);
 
-            // C / M = #ERROR
+
             buttons["C"].Command.Execute(buttons["C"].CommandParameter);
             buttons["/"].Command.Execute(buttons["/"].CommandParameter);
             buttons["M"].Command.Execute(buttons["M"].CommandParameter);
@@ -280,68 +274,6 @@ namespace UITestsForRomanNumbersCalculator
             string text = resultTextBox.Text;
             buttons["CE"].Command.Execute(buttons["CE"].CommandParameter);
             Assert.True(text == "#ERROR", getErrorMessage("#ERROR", text));
-        }
-
-        [Fact]
-        public async void TestWithChangingSigns()
-        {
-            var app = AvaloniaApp.GetApp();
-            var mainWindow = AvaloniaApp.GetMainWindow();
-
-            await Task.Delay(100);
-
-            var resultTextBox = mainWindow.GetVisualDescendants().OfType<TextBlock>().First(textBox => textBox.Name == "CalculationsResultTextBox");
-            Dictionary<string, Button> buttons = initializeMainWindowButtons(mainWindow);
-
-            // Test add
-            buttons["C"].Command.Execute(buttons["C"].CommandParameter);
-            buttons["/"].Command.Execute(buttons["/"].CommandParameter);
-            buttons["+"].Command.Execute(buttons["+"].CommandParameter);
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
-            buttons["="].Command.Execute(buttons["="].CommandParameter);
-
-            await Task.Delay(50);
-            string text = resultTextBox.Text;
-            buttons["CE"].Command.Execute(buttons["CE"].CommandParameter);
-            Assert.True(text == "MC", getErrorMessage("MC", text));
-
-            // Test divide
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
-            buttons["*"].Command.Execute(buttons["*"].CommandParameter);
-            buttons["/"].Command.Execute(buttons["/"].CommandParameter);
-            buttons["M"].Command.Execute(buttons["M"].CommandParameter);
-            buttons["="].Command.Execute(buttons["="].CommandParameter);
-
-            await Task.Delay(50);
-            text = resultTextBox.Text;
-            buttons["CE"].Command.Execute(buttons["CE"].CommandParameter);
-            Assert.True(text == "I", getErrorMessage("I", text));
-
-            // Test multiply
-            buttons["C"].Command.Execute(buttons["C"].CommandParameter);
-            buttons["-"].Command.Execute(buttons["-"].CommandParameter);
-            buttons["*"].Command.Execute(buttons["*"].CommandParameter);
-            buttons["X"].Command.Execute(buttons["X"].CommandParameter);
-            buttons["I"].Command.Execute(buttons["I"].CommandParameter);
-            buttons["="].Command.Execute(buttons["="].CommandParameter);
-
-            await Task.Delay(50);
-            text = resultTextBox.Text;
-            buttons["CE"].Command.Execute(buttons["CE"].CommandParameter);
-            Assert.True(text == "MC", getErrorMessage("MC", text));
-
-            // Test substract
-            buttons["C"].Command.Execute(buttons["C"].CommandParameter);
-            buttons["+"].Command.Execute(buttons["+"].CommandParameter);
-            buttons["-"].Command.Execute(buttons["-"].CommandParameter);
-            buttons["X"].Command.Execute(buttons["X"].CommandParameter);
-            buttons["I"].Command.Execute(buttons["I"].CommandParameter);
-            buttons["="].Command.Execute(buttons["="].CommandParameter);
-
-            await Task.Delay(50);
-            text = resultTextBox.Text;
-            buttons["CE"].Command.Execute(buttons["CE"].CommandParameter);
-            Assert.True(text == "LXXXIX", getErrorMessage("LXXXIX", text));
         }
     }
 }

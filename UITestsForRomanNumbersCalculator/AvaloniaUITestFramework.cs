@@ -78,7 +78,7 @@ namespace UITestsForRomanNumbersCalculator
                 {
                     try
                     {
-                        //AvaloniaApp.RegisterDependencies();
+                     
 
                         AvaloniaApp
                             .BuildAvaloniaApp()

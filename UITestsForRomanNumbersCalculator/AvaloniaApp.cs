@@ -10,11 +10,7 @@ namespace UITestsForRomanNumbersCalculator
 {
     public static class AvaloniaApp
     {
-        // DI registrations
-        /* public static void RegisterDependencies() =>
-             Bootstrapper.Register(AvaloniaLocator.CurrentMutable, AvaloniaLocator.Current);*/
 
-        // stop app and cleanup
         public static void Stop()
         {
             var app = GetApp();
@@ -36,6 +32,6 @@ namespace UITestsForRomanNumbersCalculator
                 .Configure<App>()
                 .UsePlatformDetect()
                 .UseReactiveUI()
-                .UseHeadless(); // Need a package Avalonia.Headless 10.18 from NuGet for this method
+                .UseHeadless(); 
     }
 }
